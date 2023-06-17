@@ -3,7 +3,8 @@ import './App.css';
 import Home from './Components/Home';
 import Posts from './Components/Posts'
 import { TfiReload } from 'react-icons/tfi';
-import { Route, Routes } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
+import Nomatch from './Components/Nomatch';
 
 function App() {
 
@@ -14,9 +15,6 @@ function App() {
   const [pageNumber, setPageNumber] = useState(randomNumberForPage());
   const [author, setAuthor] = useState('')
 
-  // function randonNumberForQuote () {
-  //   return Math.floor(Math.random() * 11);
-  // }
   
 
   const API_URL = 'https://quote-garden.onrender.com/api/v3/quotes/';
@@ -32,17 +30,15 @@ function App() {
         }
         const data = await response.json();
         setQuotes(data.data[0])
-  
       } catch (err) {
         console.log(err);
       }
     }
     fetchQuotes ();
   }, [pageNumber])
-
+  
   function handleRefreshClick () {
     setPageNumber(randomNumberForPage());
-    console.log(quotes); 
   }
   return (
     <>
@@ -59,14 +55,22 @@ function App() {
               <Home 
                 quotes={quotes}
                 API_URL={API_URL}
-                // setQuotes={setQuotes}
+                setAuthor={setAuthor}
+                author={author}
+                setQuotes={setQuotes}
               />}
             />
 
             <Route path={`/${quotes.quoteAuthor}`} element={ 
             <Posts 
               quotes={quotes}
+              API_URL={API_URL}
+              setAuthor={setAuthor}
+              author={author}
+              setQuotes={setQuotes}
             />} />
+
+            <Route path='*' element={ <Nomatch /> } />
   
           </Routes>
           

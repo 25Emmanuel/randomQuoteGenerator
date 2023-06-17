@@ -3,7 +3,7 @@ import Quote from './Quote'
 import QuoteDetail from './QuoteDetail'
 
 
-const Home = ( {quotes, author, setAuthor, API_URL } ) => {
+const Home = ( {quotes, author, setAuthor, API_URL, setQuotes } ) => {
   return (
     <>
       <Quote 
@@ -14,6 +14,7 @@ const Home = ( {quotes, author, setAuthor, API_URL } ) => {
         setAuthor={setAuthor}
         quotes={quotes}
         API_URL={API_URL}
+        setQuotes={setQuotes}
       />
     </>
   )

@@ -17,13 +17,11 @@ code {
 }
 .App {
   text-align: center;
-  /* width: 100vw; */
   margin-top: 127px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: aqua; */
 }
 .refresh-container {
   width: fit-content;
@@ -34,11 +32,10 @@ code {
 }
 .system {
   width: 80%;
-  /* background-color: blue; */
   border-left: 8px solid #f7df94;
+  margin-bottom: 50px;
 }
 .quote-container {
-  /* background-color: aqua; */
   width: 60%;
   margin-left: auto;
   margin-right: auto;
@@ -64,6 +61,7 @@ code {
   font-family: 'Raleway', sans-serif;
   color: #f2f2f2;
   font-size: 24px;
+  text-decoration: none;
 }
 .genre {
   font-family: 'Raleway', sans-serif;
